@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logowanie</title>
+</head>
+<body>
+    <!-- Logowanie -->
+    <div id="login">
+        <h2>Logowanie</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Login" required>
+            <input type="password" id="password" placeholder="Hasło" required>
+            <button type="submit">Zaloguj się</button>
+        </form>
+        <p id="error-message" style="color:red; display:none;">Login lub hasło niepoprawne</p>
+
+    </div>
+
+<!-- Panel Użytkownika -->
+<div id="userPanel" style="display:none;">
+    <h2>Panel Użytkownika</h2>
+    <p>Witaj w panelu użytkownika!</p>
+
+    <!-- Zmiana Hasła -->
+    <h3>Zmień hasło</h3>
+    <div id="changePasswordSection" style="display:none;">
+        <input type="password" id="userOldPassword" placeholder="Stare hasło" required>
+        <input type="password" id="userNewPassword" placeholder="Nowe hasło" required>
+        <button id="userChangePasswordButton">Zmień hasło</button>
+        <p id="passwordChangeMessage" style="color:green; display:none;"></p>
+    </div>
+
+    <div id="passwordExpiredMessage" style="color:red; display:none;">
+        Twoje hasło wygasło. Proszę wprowadzić nowe hasło.
+    </div>
+
+    <!-- Wylogowanie -->
+    <button class="logoutButton">Wyloguj</button>
+
+</div>
+
+<div id="adminPanel" style="display:none;">
+    <h2>Panel Administratora</h2>
+    <p>Witaj w panelu administratora!</p>
+
+    <!-- Lista użytkowników -->
+    <h3>Lista użytkowników</h3>
+    <ul id="userList"></ul>
+
+    <h3>Zmiana hasła Administratora</h3>
+    <div id="changePasswordForm">
+        <input type="password" id="oldPassword" placeholder="Stare hasło" required>
+        <input type="password" id="newAdminPassword" placeholder="Nowe hasło" required>
+        <button type="button" class="changeAdminPasswordButton">Zmień hasło</button>
+        <p id="passwordChangeMessage" style="color:green; display:none;"></p>
+        
+    </div>
+
+    <!-- Formularz do edycji użytkownika -->
+<h3>Edytuj użytkownika</h3>
+<div id="updateUserForm">
+    <select id="currentUsernameSelect" required>
+        <option value="" disabled selected>Wybierz użytkownika</option>
+        <!-- Tutaj będą dynamicznie dodawani użytkownicy -->
+    </select>
+    
+    <input type="text" id="newUsername" placeholder="Nowa nazwa użytkownika" >
+    <input type="password" id="newPassword" placeholder="Nowe hasło" >
+
+    <button class="changeUserPasswordAdmin" >Zmień Hasło użytkownika</button>
+    <button type="button" class="deleteUserButton">Usuń użytkownika</button>
+    <button class="banUserButton">Zbanuj użytkownika</button>
+
+    <div id="passwordRestrictionsPanel" >
+        <label for="enableRestrictions">Włącz ograniczenia haseł:</label>
+        <select id="enableRestrictions">
+            <option value="true">Tak</option>
+            <option value="false">Nie</option>
+        </select>
+        
+        <button class="setPasswordRestrictionsButton">Ustaw ograniczenia</button>
+        <p id="setRestrictionsMessage" ></p>
+    </div>
+
+    <div id="passwordExpirationPanel">
+        <label for="passwordExpirationTime">Czas wygasania hasła (sekundy):</label>
+        <input type="number" id="passwordExpirationTime" placeholder="Wprowadź czas w sekundach" min="1" required>
+        <button class="setPasswordExpirationButton">Ustaw czas wygasania hasła</button>
+        <p id="setExpirationMessage" style="color:green; display:none;"></p>
+    </div>
+
+    <p id="updateMessage" style="color:green; display:none;"></p>
+</div>
+
+
+
+
+    <h3>Add New User</h3>
+        <form id="addUserForm">
+            <input type="text" id="addNewUsername" placeholder="New Username" required>
+            <input type="password" id="addNewPassword" placeholder="New Password" required>
+            <select id="newRole">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button type="button" class="addUserButton">Add User</button>
+        </form>
+
+    
+
+    <!-- Wylogowanie -->
+    <button class="logoutButton">Wyloguj</button>
+</div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
